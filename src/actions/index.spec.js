@@ -6,7 +6,7 @@ describe('actions', () => {
       actions.selectSubreddit('redux')
     ).toEqual({
       type: actions.SELECT_SUBREDDIT,
-      subreddit: 'redux'
+      reddit: 'redux'
     })
   })
 
@@ -15,7 +15,7 @@ describe('actions', () => {
       actions.invalidateSubreddit('redux')
     ).toEqual({
       type: actions.INVALIDATE_SUBREDDIT,
-      subreddit: 'redux'
+      reddit: 'redux'
     })
   })
 
@@ -24,7 +24,7 @@ describe('actions', () => {
       actions.requestPosts('redux')
     ).toEqual({
       type: actions.REQUEST_POSTS,
-      subreddit: 'redux'
+      reddit: 'redux'
     })
   })
 
@@ -37,7 +37,7 @@ describe('actions', () => {
       })
     ).toEqual({
       type: actions.RECEIVE_POSTS,
-      subreddit: 'redux',
+      reddit: 'redux',
       posts: [],
       receivedAt: Date.now()
     })

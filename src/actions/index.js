@@ -3,24 +3,24 @@ export const INVALIDATE_SUBREDDIT = 'INVALIDATE_SUBREDDIT'
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 
-export const selectSubreddit = (subreddit) => ({
+export const selectSubreddit = (reddit) => ({
   type: SELECT_SUBREDDIT,
-  subreddit
+  reddit
 })
 
-export const invalidateSubreddit = (subreddit) => ({
+export const invalidateSubreddit = (reddit) => ({
   type: INVALIDATE_SUBREDDIT,
-  subreddit
+  reddit
 })
 
-export const requestPosts = (subreddit) => ({
+export const requestPosts = (reddit) => ({
   type: REQUEST_POSTS,
-  subreddit
+  reddit
 })
 
-export const receivePosts = (subreddit, json) => ({
+export const receivePosts = (reddit, json) => ({
   type: RECEIVE_POSTS,
-  subreddit,
+  reddit,
   posts: json.data.children.map(child => child.data),
   receivedAt: Date.now()
 })
