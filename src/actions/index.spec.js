@@ -1,20 +1,20 @@
 import * as actions from './index'
 
 describe('actions', () => {
-  it('selectSubreddit create SELECT_SUBREDDIT action', () => {
+  it('selectReddit create SELECT_REDDIT action', () => {
     expect(
-      actions.selectSubreddit('redux')
+      actions.selectReddit('redux')
     ).toEqual({
-      type: actions.SELECT_SUBREDDIT,
+      type: actions.SELECT_REDDIT,
       reddit: 'redux'
     })
   })
 
-  it('invalidateSubreddit create INVALIDATE_SUBREDDIT action', () => {
+  it('invalidateReddit create INVALIDATE_REDDIT action', () => {
     expect(
-      actions.invalidateSubreddit('redux')
+      actions.invalidateReddit('redux')
     ).toEqual({
-      type: actions.INVALIDATE_SUBREDDIT,
+      type: actions.INVALIDATE_REDDIT,
       reddit: 'redux'
     })
   })
@@ -41,5 +41,11 @@ describe('actions', () => {
       posts: [],
       receivedAt: Date.now()
     })
+  })
+
+  xit('fetchPosts fetch posts about some reddit', () => {
+    expect(
+      actions.fetchPosts('reactjs')
+    )
   })
 })
