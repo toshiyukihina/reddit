@@ -45,7 +45,7 @@ describe('actions', () => {
 
   xit('fetchPosts fetch posts about some reddit', () => {
     expect(
-      actions.fetchPosts('reactjs')
+      actions.fetchPostsIfNeeded('reactjs')
     )
   })
 })

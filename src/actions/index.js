@@ -25,9 +25,28 @@ export const receivePosts = (reddit, json) => ({
   receivedAt: Date.now()
 })
 
-export const fetchPosts = reddit => dispatch => {
+const fetchPosts = reddit => dispatch => {
   dispatch(requestPosts(reddit))
   return fetch(`https://www.reddit.com/r/${reddit}.json`)
     .then(response => response.json())
     .then(json => dispatch(receivePosts(reddit, json)))
+}
+
+const shouldFetchPosts = (state, reddit) => {
+  const posts = state.postsByReddit[reddit]
+  if (!posts) {
+    return true
+  } else if (posts.isFetching) {
+    return false
+  } else {
+    return posts.didInvalidate
+  }
+}
+
+export const fetchPostsIfNeeded = reddit => (dispatch, getState) => {
+  if (shouldFetchPosts(getState(), reddit)) {
+    return dispatch(fetchPosts(reddit))
+  } else {
+    return Promise.resolve()
+  }
 }
